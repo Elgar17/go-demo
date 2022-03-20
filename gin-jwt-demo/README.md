@@ -34,13 +34,36 @@ go run main.go  # 启动项目
 （1）生成 token
 
 - 请求方式：POST
-- 路径：`/login`
-- 参数：name
+- 路径：`http://localhost:8080/generate`
+- 参数：username,password
 - 返回：token
+
+返回实例：
+```json
+{
+    "code": 200,
+    "msg": "ok",
+    "token": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJleHAiOjE2NDc3NjIzMjcsImlzcyI6Imdpbl9ibG9nIn0.HEFQ_H-7SwRIzWWP6kCMjFlGjGLlSvOxdGLEjJcl4gE"
+    }
+}
+```
 
 （2）验证 token
 
 - 请求方式：POST
-- 路径：`/verify`
+- 路径：`http://localhost:8080/parse`
 - 参数：token
 - 返回：name,userid
+
+返回实例：
+```json
+{
+    "code": 200,
+    "msg": "ok",
+    "data": {
+        "password": "123456",
+        "username": "admin"
+    }
+}
+```
