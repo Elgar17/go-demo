@@ -24,3 +24,4 @@ go run main.go
 (2) 网络
 
 - [Gin JWT demo](./gin-jwt-demo)
+- [Send email](./send-email)
