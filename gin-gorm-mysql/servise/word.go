@@ -24,3 +24,8 @@ func (ws *WordServise) GetWords(size int, offset int) (words []*models.Word, err
 func (ws *WordServise) DeleteWordByID(id int) (err error) {
 	return models.DB.Delete(&models.Word{}, id).Error
 }
+
+// 更新 word 内容或保存到数据库中的值或保存到新的 Word 对象中的值。
+func (ws *WordServise) UpdateWord(word *models.Word) (err error) {
+	return models.DB.Where("id = ?", word.ID).Updates(&word).Error
+}

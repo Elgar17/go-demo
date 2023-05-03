@@ -63,6 +63,7 @@ func main() {
 
 		if err = wordServise.AddWord(&word); err != nil {
 			c.JSON(http.StatusOK, gin.H{"code": -1, "msg": "添加失败"})
+			return
 		}
 
 		c.JSON(http.StatusOK, gin.H{"code": 0, "msg": "添加成功"})
@@ -85,6 +86,25 @@ func main() {
 		}
 		c.JSON(http.StatusOK, gin.H{"code": 0, "msg": "删除成功"})
 	})
+
+	// 更新
+	r.PUT("/word", func(c *gin.Context) {
+		var word models.Word
+		err := c.ShouldBindJSON(&word)
+
+		if err != nil {
+			c.JSON(http.StatusOK, gin.H{"code": -1, "msg": "参数错误"})
+			return
+		}
+
+		if err = wordServise.UpdateWord(&word); err != nil {
+			c.JSON(http.StatusOK, gin.H{"code": -1, "msg": "更新失败"})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{"code": 0, "msg": "更新成功"})
+	})
+
 	// 监听8080端口的服务
 	r.Run(":8080")
 }

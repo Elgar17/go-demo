@@ -2,26 +2,27 @@
 
 Golang demo.
 
-## 快速开始
+## Qick Start
 
 ```bash
-# 下载到本地
+# clone the code into your $GOROOT/src directory.
 git clone https://github.com/Elgar17/go-demo.git
 
-# 进入一个 demo
+# into someone demo
 cd hello-world
 
-# 运行
+# run
 go run main.go
 ```
 
 ## 目录
 
-(1) 基础
+(1) Base
 
 - [hello world](./hello-world)
 
-(2) 网络
+(2) Network
 
 - [Gin JWT demo](./gin-jwt-demo)
 - [Send email](./send-email)
+- [Gin gorm mysql CRUD](./gin-gorm-mysql)
